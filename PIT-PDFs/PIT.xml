@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<proposal schemaVersion="2026.1.1" tacCategory="Galactic Other">
+    <meta band3optionChosen="false" overrideAffiliate="false">
+        <firstAttachment>/tmp/GemPhase1_1_26A.pdf</firstAttachment>
+        <secondAttachment>/tmp/GemPhase1_2_26A.pdf</secondAttachment>
+    </meta>
+    <semester year="2026" half="A"/>
+    <title>Example Proposal</title>
+    <abstract>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</abstract>
+    <scheduling></scheduling>
+    <investigators>
+        <pi id="investigator-0">
+            <firstName>Taylor</firstName>
+            <lastName>Zion</lastName>
+            <status>PhD</status>
+            <gender>None selected</gender>
+            <email>taylor.zion@gemini.edu</email>
+            <address>
+                <institution>Gemini Observatory/NSF NOIRLab (North)</institution>
+                <address>670 N. Aohoku Place
+Hilo
+HI
+96720</address>
+                <country>USA</country>
+            </address>
+        </pi>
+        <coi id="investigator-1">
+            <firstName>Morgan</firstName>
+            <lastName>Atlas</lastName>
+            <status>PhD</status>
+            <gender>None selected</gender>
+            <email>morgan.atlas@gemini.edu</email>
+            <phone></phone>
+            <institution>Gemini Observatory/NSF NOIRLab (South)</institution>
+        </coi>
+        <coi id="investigator-2">
+            <firstName>Robin</firstName>
+            <lastName>Blair</lastName>
+            <status>PhD</status>
+            <gender>None selected</gender>
+            <email>robin.blairi@kpno.edu</email>
+            <phone></phone>
+            <institution>Kitt Peak National Observatory/NSF’s NOIRLab</institution>
+        </coi>
+    </investigators>
+    <targets>
+        <sidereal epoch="J2000" id="target-0">
+            <name>*  60 UMa</name>
+            <degDeg>
+                <ra>174.6396448970599521999247372150421142578125</ra>
+                <dec>46.8342141645999845422920770943164825439453125</dec>
+            </degDeg>
+            <properMotion deltaRA="-39.964" deltaDec="-27.31"/>
+            <magnitudes>
+                <magnitude band="B" system="Vega">6.456999778747559</magnitude>
+                <magnitude band="V" system="Vega">6.076000213623047</magnitude>
+                <magnitude band="J" system="Vega">5.311999797821045</magnitude>
+                <magnitude band="H" system="Vega">5.251999855041504</magnitude>
+                <magnitude band="K" system="Vega">5.105000019073486</magnitude>
+            </magnitudes>
+        </sidereal>
+    </targets>
+    <conditions>
+        <condition id="condition-0">
+            <name>CC 70%/Cirrus, IQ 70%/Good, SB Any/Bright, WV Any</name>
+            <cc>70%/Cirrus</cc>
+            <iq>70%/Good</iq>
+            <sb>Any/Bright</sb>
+            <wv>Any</wv>
+        </condition>
+    </conditions>
+    <blueprints>
+        <gmosN>
+            <regime>optical</regime>
+            <ifu id="blueprint-0">
+                <name>GMOS-N IFU R831 None IFU 1 slit</name>
+                <visitor>false</visitor>
+                <altair>
+                    <none/>
+                </altair>
+                <filter>None</filter>
+                <disperser>R831</disperser>
+                <fpu>IFU 1 slit</fpu>
+            </ifu>
+        </gmosN>
+        <gmosN>
+            <regime>optical</regime>
+            <mos id="blueprint-1">
+                <name>GMOS-N MOS 1.0 arcsec slit B480 None +Pre</name>
+                <visitor>false</visitor>
+                <altair>
+                    <none/>
+                </altair>
+                <filter>None</filter>
+                <disperser>B480</disperser>
+                <nodAndShuffle>false</nodAndShuffle>
+                <preimaging>true</preimaging>
+                <fpu>1.0 arcsec slit</fpu>
+            </mos>
+        </gmosN>
+        <gmosN>
+            <regime>optical</regime>
+            <longslit id="blueprint-2">
+                <name>GMOS-N LongSlit B1200 None 0.75 arcsec slit</name>
+                <visitor>false</visitor>
+                <altair>
+                    <none/>
+                </altair>
+                <filter>None</filter>
+                <disperser>B1200</disperser>
+                <fpu>0.75 arcsec slit</fpu>
+            </longslit>
+        </gmosN>
+        <gmosN>
+            <regime>optical</regime>
+            <imaging id="blueprint-3">
+                <name>GMOS-N Imaging g (475 nm)+r (630 nm)+i (780 nm)+z (925 nm)</name>
+                <visitor>false</visitor>
+                <altair>
+                    <none/>
+                </altair>
+                <filter>g (475 nm)</filter>
+                <filter>r (630 nm)</filter>
+                <filter>i (780 nm)</filter>
+                <filter>z (925 nm)</filter>
+            </imaging>
+        </gmosN>
+    </blueprints>
+    <observations>
+        <observation band="Band 1/2" enabled="true" target="target-0" condition="condition-0" blueprint="blueprint-0">
+            <progTime units="hr">1.0</progTime>
+            <partTime units="hr">0.14</partTime>
+            <time units="hr">1.1400000000000001</time>
+            <meta ck="">
+                <guiding>
+                    <percentage>92</percentage>
+                    <evaluation>Caution</evaluation>
+                </guiding>
+                <visibility>Good</visibility>
+                <gsa>0</gsa>
+            </meta>
+        </observation>
+        <observation band="Band 1/2" enabled="true" target="target-0" condition="condition-0" blueprint="blueprint-1">
+            <progTime units="hr">1.0</progTime>
+            <partTime units="hr">0.14</partTime>
+            <time units="hr">1.1400000000000001</time>
+            <meta ck="">
+                <guiding>
+                    <percentage>92</percentage>
+                    <evaluation>Caution</evaluation>
+                </guiding>
+                <visibility>Good</visibility>
+                <gsa>0</gsa>
+            </meta>
+        </observation>
+        <observation band="Band 1/2" enabled="true" target="target-0" condition="condition-0" blueprint="blueprint-2">
+            <progTime units="hr">1.0</progTime>
+            <partTime units="hr">0.14</partTime>
+            <time units="hr">1.1400000000000001</time>
+            <meta ck="">
+                <guiding>
+                    <percentage>92</percentage>
+                    <evaluation>Caution</evaluation>
+                </guiding>
+                <visibility>Good</visibility>
+                <gsa>0</gsa>
+            </meta>
+        </observation>
+        <observation band="Band 1/2" enabled="true" target="target-0" condition="condition-0" blueprint="blueprint-3">
+            <progTime units="hr">1.0</progTime>
+            <partTime units="hr">0.0</partTime>
+            <time units="hr">1.0</time>
+            <meta ck="">
+                <guiding>
+                    <percentage>92</percentage>
+                    <evaluation>Caution</evaluation>
+                </guiding>
+                <visibility>Good</visibility>
+                <gsa>0</gsa>
+            </meta>
+        </observation>
+    </observations>
+    <proposalClass>
+        <queue tooOption="None" jwstSynergy="false" usLongTerm="false"/>
+    </proposalClass>
+</proposal>

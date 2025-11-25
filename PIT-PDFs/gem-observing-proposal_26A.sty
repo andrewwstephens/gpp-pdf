@@ -1,0 +1,332 @@
+\pagenumbering{}
+\usepackage{xcolor}
+
+% First, identifying information about this style file.
+
+\def\revtex@ver{1.4}		% Version number of this file.
+\def\revtex@date{19 Aug 2025}	% Revision date.
+\def\revtex@author{Chadd Myers, Bryan Miller, Aleksandar Cikota}	% This file's author.
+\def\revtex@org{NOIRLab}		% Sponsoring organization.
+\def\revtex@genre{observing proposal}	% Document "type".
+
+% \ifundefined sequence
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+
+
+% \let\ltx@enddoc=\enddocument
+% \def\enddocument{\vfill\revtex@pageid\ltx@enddoc}
+
+% Page design/layout macros.  Page sizes are at the end of the file.
+
+\def\baselinestretch{0.98}	% Tighten up baselines a little.
+
+\def\ps@kpprophead{\def\@oddfoot{}\def\@evenfoot{}
+    \def\@oddhead{\hbox to\textwidth{\small\sl \prop@phead
+    \hfill}}\let\@evenhead\@oddhead
+    \def\chaptermark##1{\markright {{\ifnum \c@secnumdepth>\m@ne
+	\@chapapp\ \thechapter. \ \fi ##1}}}}
+
+
+\def\prop@idbox{ \ifx\@empty\@propid{
+	\hfill\phantom{\framebox[1.7in][c]{\LARGE\bf/}}
+    }\else{
+	\hfill\framebox[1.7in][c]{\LARGE\bf \@propid/\@sciencecategorynum }
+    }\fi
+}
+
+\def\prop@oldidbox{ \ifx\@empty\@oldpropid{
+	\phantom{\framebox[2.2in][c]{\bf/}}
+    }\else{
+	\framebox[2.2in][c]{\bf Resubmission of \@oldpropid }
+    }\fi
+}
+
+\def\prop@info{\begin{tabbing}
+    % first line
+    \hbox to.34\textwidth{\large\bf\prop@head\hfill}%
+    \hbox to.30\textwidth{%
+	\ifx\@proposaltype\@empty{\hfill}%
+	\else{\hfill{\it \@proposaltype\ proposal}\hfill}\fi}%
+    \hbox to.36\textwidth{%
+        {\bf Panel:} \hspace{0.21in} 
+	\ifx\@panelassignment\@empty{\instruct@font For office use.}%
+	\else{\@panelassignment}\fi%
+	\hfill}%
+    \\
+
+    % second line
+    \hbox to.34\textwidth{%
+	\ifx\@rcptdate\@empty{\it Date:\/} \today%
+	\else{Date received:} \@rcptdate\fi\hfill}%
+    \hbox to.30\textwidth{%
+    	\ifx\@thesis\@thesistrue{\hfill{\it Thesis}\hfill}%
+	\else{\hfill}\fi}%
+    \hbox to.36\textwidth{{\bf Category:} \@sciencecategory\hfill}%
+\end{tabbing}}
+
+
+\def\ques@font{\it}
+\def\instruct@font{\small\sl}
+
+% Below is the markup that the observing team needs to supply.
+% Instructions for filling in the form using these commands are in
+% a template proposal form file as LaTeX comments.
+
+\def\prop@head{2026A Gemini Proposal}
+\def\prop@phead{\textcolor{lightgray}{2026A Gemini Proposal - Latex Template - \revtex@ver}}
+
+%\def\prop@head{Gemini Observing Proposal}
+%\def\prop@phead{\textcolor{lightgray}{Gemini Proposal}}
+
+\def\title#1{
+    \vspace*{-6\headheight}\prop@oldidbox  \prop@idbox
+    \vspace*{0.5in}
+    \prop@info\par
+    \vspace*{0.1in}
+    \def\@savetitle{#1}\ifx\@empty\@savetitle
+    \makebox[\textwidth]{\Large{\bf TITLE:} \hrulefill}\par
+    \makebox[\textwidth]{\hrulefill}\par
+    \else{\LARGE\bf\@savetitle}\fi
+}
+    
+
+
+\newenvironment{references}{\subsubsection*{References}}{\relax}
+\let\reference=\par
+
+%\def\propsection{\@startsection{section}{1}{\z@}
+%    {7pt plus 4pt minus 2pt}{-1em}{\normalsize\bf}}
+\def\propsection{\@startsection{section}{1}{\z@}
+    {7pt plus 4pt minus 2pt}{0.1ex plus 0.2ex}{\normalsize\bf}}
+\def\subsection{\@startsection{subsection}{2}{\z@}
+    {-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+
+
+\def\justif@head{{\instruct@font Limited to 1 page of text plus 2 pages for figures and references.\par}}
+
+\def\justifllp@head{{\instruct@font Limited to 5 pages, including figures and references.\par}}
+
+\def\feas@head{{\instruct@font Limited to 1 page of text}\par}
+
+\def\teaminfollp@head{{\instruct@font Limited to 3 pages of text}\par}
+
+\def\ddt@head{{\instruct@font Limited to 1/2 page of text}\par}
+
+\def\band3@head{{\instruct@font Limited to 1/2 page of text}\par}
+
+
+%
+%\def\ofac@head{{\instruct@font (1) Describe how the proposed observations 
+%    complement data from
+%    non-Gemini facilities.  For each of these other facilities, indicate 
+%    the nature of the observations (yours or those of others), and 
+%    describe the importance of the observations proposed here in the 
+%    context of the entire program. (2) Do you currently have a grant 
+%    that would provide resources to support the data processing, analysis, 
+%    and publication of the observations proposed here?"
+%    \par}}
+%
+%\def\dataacc@head{{\instruct@font  Describe the data products (reduced 
+%observations, single or stacked images, spectra, object catalogues, and 
+%so on) to be releases, as well as the timeline and mechanism of their 
+%release to the community.  Please differentiate between intermediate 
+%products  developed during the execution of the survey versus the 
+%final products likely to be produced after the full observations 
+%have been obtained.\par}}
+%
+%\def\past@head{{\instruct@font List in the Table below allocations of Gemini telescope time to the Principal Investigator during the past 2 years (e.g. GN-2019A-Q-999) the amount of time awarded (e.g. 12 hrs), the percentage of this that was useful (e.g. 80), and text describing the current state of any data obtained (e.g. Data reduced).\par}}
+
+\def\sciencejustification{\newpage\propsection{\protect\fbox{Scientific Justification} \justif@head}}
+\def\expdesign{\newpage\propsection{\protect\fbox{Experimental Design} \feas@head}}
+\def\technicaldescription{\propsection{\fbox{Technical Description} \feas@head}}
+\def\ddtjustification{\propsection{\fbox{DDT Justification} \ddt@head}} 
+\def\bandthreeplan{\propsection{\fbox{Band 3 Plan} \band3@head}} 
+\def\classicalbackup{\propsection{\fbox{Classical Backup Program} \band3@head}}
+\def\publications{\propsection{\fbox{Publications}}}
+%\def\manplan{\vfill\propsection{\protect\fbox{Management Plan}}\mplan@head}
+\def\otherfacilities{\vfill\propsection{\protect\fbox{Use of Other Facilities or Resources}}}
+% \ofac@head}
+\def\longtermdetails{\vfill\propsection{\protect\fbox{Long-term Details}}\ltd@head}
+%\def\dataaccess{\vfill\propsection{\protect\fbox{Release of Data}}\dataacc@head}
+\def\specialrequest{\propsection{\protect\fbox{Special Instrument Requirements}}
+    \specreq@head}
+\def\thepast{\vfill\propsection{\protect\fbox{Previous Use of Gemini}}}
+%    \past@head}
+\def\justifyduplications{\propsection{\protect\fbox{Justify Target Duplications}}}
+\def\itcresults{\propsection{\protect\fbox{ITC Examples}}}
+\def\teaminfo{\propsection{\protect\fbox{Team Information} \feas@head}}
+
+\def\teaminfollp{\propsection{\protect\fbox{Team Information} \teaminfollp@head}}
+\def\scijustllp{\newpage\propsection{\protect\fbox{Scientific Justification} \justifllp@head}}
+\def\expdesignllp{\newpage\propsection{\protect\fbox{Experimental Design}}}
+\def\techdescriptionllp{\propsection{\fbox{Technical Description}}}
+\def\observingmode{\propsection{\fbox{Observing Mode}}}
+\def\manplan{\propsection{\fbox{Management Plan}}}
+\def\addedvalue{\propsection{\fbox{Added Value}}}
+\def\targetdist{\propsection{\fbox{Distribution of Targets}}}
+
+\def\relatedwork#1{\fbox{$\star$}\space#1}
+
+%  ****************************************
+%  *           PDF INCLUSIONS             *
+%  ****************************************
+
+\RequirePackage{pdfpages}
+
+%  ****************************************
+%  *           EPS INCLUSIONS             *
+%  ****************************************
+% TODO: this was left in for backwards compatibility, remove eventually
+
+% Include Rokicki's epsf.sty file explicitly.
+
+\@ifundefined{epsfbox}{\input{epsf.sty}}{\relax}
+
+% Simplified EPS inclusion macros so we can see how this goes...
+% These are layered on Rokicki's dvips material, and are dependent
+% on the author's use of that DVI driver.
+%
+%    \plotone{EPSFILE}
+%    \plottwo{EPSFILE}{EPSFILE}
+%    \plotfiddle{EPSFILE}{VSIZE}{ROT}{HSF}{VSF}{HTRANS}{VTRANS}
+%
+% \plotone inserts the plot in a space that is \columnwidth wide; the
+% plot is scaled so the horizontal dimension fits in the text width,
+% and the vertical dimension is scaled to maintain the aspect ratio.
+% \plottwo inserts two plots next to each other in one \columnwidth,
+% sort of like "two-up" mode.
+%
+%    EPSFILE    name of file with EPS
+%
+% The following arguments are for the \plotfiddle macro which formats
+% the \special itself, prepares vspace, etc.  This completely bypasses
+% Rokicki's macros that attempt to rationalize the EPS BoundingBox with
+% the LaTeX page dimensions.
+%
+%    VSIZE      vertical white space to allow for plot
+%    ROT        rotation angle
+%    HSF        horiz scale factor
+%    VSF        vert scale factor
+%    HTRANS     horiz translation
+%    VTRANS     vert translation
+
+%\epsfverbosetrue
+
+\def\eps@scaling{.95}
+\def\epsscale#1{\gdef\eps@scaling{#1}}
+
+\def\plotone#1{\centering \leavevmode
+    \epsfxsize=\eps@scaling\columnwidth \epsfbox{#1}}
+
+\def\plottwo#1#2{\centering \leavevmode
+    \epsfxsize=.45\columnwidth \epsfbox{#1} \hfil
+    \epsfxsize=.45\columnwidth \epsfbox{#2}}
+
+\def\plotfiddle#1#2#3#4#5#6#7{\centering \leavevmode
+    \vbox to#2{\rule{0pt}{#2}}
+    \special{psfile=#1 voffset=#7 hoffset=#6 vscale=#5 hscale=#4 angle=#3}}
+
+% Conveniences - compatible with AASTeX v4.0.
+
+\def\deg{\hbox{$^\circ$}}
+\def\sun{\hbox{$\odot$}}
+\def\earth{\hbox{$\oplus$}}
+\def\lesssim{\mathrel{\hbox{\rlap{\hbox{\lower4pt\hbox{$\sim$}}}\hbox{$<$}}}}
+\def\gtrsim{\mathrel{\hbox{\rlap{\hbox{\lower4pt\hbox{$\sim$}}}\hbox{$>$}}}}
+\def\sq{\hbox{\rlap{$\sqcap$}$\sqcup$}}
+\def\arcdeg{\hbox{$^\circ$}}
+\def\arcmin{\hbox{$^\prime$}}
+\def\arcsec{\hbox{$^{\prime\prime}$}}
+\def\fd{\hbox{$.\!\!^{\rm d}$}}
+\def\fh{\hbox{$.\!\!^{\rm h}$}}
+\def\fm{\hbox{$.\!\!^{\rm m}$}}
+\def\fs{\hbox{$.\!\!^{\rm s}$}}
+\def\fdg{\hbox{$.\!\!^\circ$}}
+\def\farcm{\hbox{$.\mkern-4mu^\prime$}}
+\def\farcs{\hbox{$.\!\!^{\prime\prime}$}}
+\def\fp{\hbox{$.\!\!^{\scriptscriptstyle\rm p}$}}
+\def\micron{\hbox{$\mu$m}}
+\let\la=\lesssim			% For Springer A&A compliance...
+\let\ga=\gtrsim
+\def\case#1#2{\hbox{$\frac{#1}{#2}$}}
+\def\slantfrac#1#2{\hbox{$\,^#1\!/_#2$}}
+\def\onehalf{\slantfrac{1}{2}}
+\def\onethird{\slantfrac{1}{3}}
+\def\twothirds{\slantfrac{2}{3}}
+\def\onequarter{\slantfrac{1}{4}}
+\def\threequarters{\slantfrac{3}{4}}
+\def\ubvr{\hbox{$U\!BV\!R$}}            
+\def\ub{\hbox{$U\!-\!B$}}               
+\def\bv{\hbox{$B\!-\!V$}}               
+\def\vr{\hbox{$V\!-\!R$}}               
+\def\ur{\hbox{$U\!-\!R$}}
+\def\ion#1#2{#1$\;${\small\rm\@Roman{#2}}\relax}
+
+\let\jnl@style=\rm
+\def\ref@jnl#1{{\jnl@style#1}}
+\def\aj{\ref@jnl{AJ}}                   
+\def\araa{\ref@jnl{ARA\&A}}             
+\def\apj{\ref@jnl{ApJ}}                 
+\def\apjl{\ref@jnl{ApJ}}                
+\def\apjs{\ref@jnl{ApJS}}               
+\def\ao{\ref@jnl{Appl.~Opt.}}           
+\def\apss{\ref@jnl{Ap\&SS}}             
+\def\aap{\ref@jnl{A\&A}}                
+\def\aapr{\ref@jnl{A\&A~Rev.}}          
+\def\aaps{\ref@jnl{A\&AS}}              
+\def\azh{\ref@jnl{AZh}}                 
+\def\baas{\ref@jnl{BAAS}}               
+\def\jrasc{\ref@jnl{JRASC}}             
+\def\memras{\ref@jnl{MmRAS}}            
+\def\mnras{\ref@jnl{MNRAS}}             
+\def\pra{\ref@jnl{Phys.~Rev.~A}}        
+\def\prb{\ref@jnl{Phys.~Rev.~B}}        
+\def\prc{\ref@jnl{Phys.~Rev.~C}}        
+\def\prd{\ref@jnl{Phys.~Rev.~D}}        
+\def\pre{\ref@jnl{Phys.~Rev.~E}}        
+\def\prl{\ref@jnl{Phys.~Rev.~Lett.}}    
+\def\pasp{\ref@jnl{PASP}}               
+\def\pasj{\ref@jnl{PASJ}}               
+\def\qjras{\ref@jnl{QJRAS}}             
+\def\skytel{\ref@jnl{S\&T}}             
+\def\solphys{\ref@jnl{Sol.~Phys.}}      
+\def\sovast{\ref@jnl{Soviet~Ast.}}      
+\def\ssr{\ref@jnl{Space~Sci.~Rev.}}     
+\def\zap{\ref@jnl{ZAp}}                 
+\def\nat{\ref@jnl{Nature}}              
+\def\iaucirc{\ref@jnl{IAU~Circ.}}
+\def\aplett{\ref@jnl{Astrophys.~Lett.}}
+\def\apspr{\ref@jnl{Astrophys.~Space~Phys.~Res.}}
+\def\bain{\ref@jnl{Bull.~Astron.~Inst.~Netherlands}}
+\def\fcp{\ref@jnl{Fund.~Cosmic~Phys.}}
+\def\gca{\ref@jnl{Geochim.~Cosmochim.~Acta}}
+\def\grl{\ref@jnl{Geophys.~Res.~Lett.}}
+\def\jcp{\ref@jnl{J.~Chem.~Phys.}}      
+\def\jgr{\ref@jnl{J.~Geophys.~Res.}}    
+\def\jqsrt{\ref@jnl{J.~Quant.~Spec.~Radiat.~Transf.}}
+\def\memsai{\ref@jnl{Mem.~Soc.~Astron.~Italiana}}
+\def\nphysa{\ref@jnl{Nucl.~Phys.~A}}
+\def\physrep{\ref@jnl{Phys.~Rep.}}
+\def\physscr{\ref@jnl{Phys.~Scr}}
+\def\planss{\ref@jnl{Planet.~Space~Sci.}}
+\def\procspie{\ref@jnl{Proc.~SPIE}}
+\let\astap=\aap
+\let\apjlett=\apjl
+\let\apjsupp=\apjs
+\let\applopt=\ao
+
+% Initialization.
+
+\textwidth 6.0in
+\textheight 9.0in
+\oddsidemargin \z@
+\evensidemargin \z@
+\topmargin 0.5in
+\headheight .1in
+\headsep .2in
+\parindent \z@
+\addtolength{\parskip}{1 ex}
+
+\usepackage[hmargin=20mm,top=28mm,bottom=20mm]{geometry}
+\ps@kpprophead
+\setcounter{secnumdepth}{0}

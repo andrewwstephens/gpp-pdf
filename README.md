@@ -89,3 +89,5 @@ For reference, each partner currently uses:
 * ft - gsnoi 
 * dt - gs 
 * pw - gs
+
+The REL task with the DARP PDF summary requirements is [REL-4041][https://noirlab.atlassian.net/browse/REL-4041]
